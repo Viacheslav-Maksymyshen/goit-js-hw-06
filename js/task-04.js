@@ -26,23 +26,24 @@
 //     });
 //   }
 //   increment(step) {
-//     this.counterStep += step;y
+//     this.counterStep += step;
 //   }
 //   decrement(step) {
 //     this.counterValue -= step;
 //   }
 // }
 // const counter = new CounterPlag({ counterStep: 1 });
-
-const decrementBtn = document.querySelector('#counter button[data-action="decrement"]');
-const incrementBtn = document.querySelector('#counter button[data-action="increment"]');
-const valueBtn = document.querySelector('#value');
 let counterValue = 0;
-decrementBtn.addEventListener('click', () => {
-  counterValue += 1;
-});
+const decrementBtn = document.querySelector('[data-action="decrement"]');
+const incrementBtn = document.querySelector('[data-action="increment"]');
+const valueBtn = document.querySelector('#value');
 
 incrementBtn.addEventListener('click', () => {
-  console.log('increment');
+  counterValue += 1;
+  valueBtn.textContent = counterValue;
 });
-console.log(counterValue);
+
+decrementBtn.addEventListener('click', () => {
+  counterValue -= 1;
+  valueBtn.textContent = counterValue;
+});
