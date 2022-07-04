@@ -12,20 +12,30 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+//const gallery = document.querySelector('.gallery');
+// const makeImagesItems = ({ alt, url }) => {
+//   const createItems = document.createElement('li');
+//   createItems.classList.add('items');
+
+//   const createImg = document.createElement('img');
+//   createImg.classList.add('images');
+//   createImg.alt = alt;
+//   createImg.src = url;
+//   createImg.width = 320;
+
+//   createItems.appendChild(createImg);
+//   return createItems;
+// };
+// const imagesItems = images.map(makeImagesItems);
+// gallery.append(...imagesItems);
+
 const gallery = document.querySelector('.gallery');
-
-const makeImagesItems = ({ alt, url }) => {
-  const createItems = document.createElement('li');
-  createItems.classList.add('items');
-
-  const createImg = document.createElement('img');
-  createImg.classList.add('images');
-  createImg.alt = alt;
-  createImg.src = url;
-  createImg.width = 320;
-
-  createItems.appendChild(createImg);
-  return createItems;
-};
+gallery.setAttribute(
+  'style',
+  'list-style-type: none; display: flex; align-items: center; justify-content: space-evenly',
+);
+const makeImagesItems = ({ alt, url }) =>
+  `<li class = "gallery__items"><img class = "gallery__items-img"  src = "${url}" alt = "${alt}" width = 480></li>`;
 const imagesItems = images.map(makeImagesItems);
-gallery.append(...imagesItems);
+gallery.insertAdjacentHTML('afterbegin', imagesItems);
+console.log(imagesItems);
