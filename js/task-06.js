@@ -1,20 +1,19 @@
 const textInput = document.querySelector('#validation-input');
 
-textInput.addEventListener('blur', () => {
-  const a = textInput.currentTarget.value.length;
+textInput.addEventListener('blur', even => {
+  const a = even.currentTarget.value.length;
   const b = textInput.dataset.length;
 
-  if (a < b) {
+  if (a < b && textInput.classList.contains('valid') === false) {
     textInput.classList.add('valid');
-  } else {
+  } else if (a > b && textInput.classList.contains('valid') === true) {
+    textInput.classList.replace('valid', 'invalid');
+  } else if (a > b && textInput.classList.contains('invalid') === false) {
     textInput.classList.add('invalid');
+  } else if (a < b && textInput.classList.contains('invalid') === true) {
+    textInput.classList.replace('invalid', 'valid');
   }
 
-  console.log(dataLength);
+  console.log(a);
+  console.log(b);
 });
-
-// textInput.addEventListener('input', event => {
-//   event.currentTarget.value < 6
-//     ? (output.textContent = 'Anonymous')
-//     : (output.textContent = event.currentTarget.value);
-// });
