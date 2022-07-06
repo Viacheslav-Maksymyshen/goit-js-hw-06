@@ -36,6 +36,6 @@ gallery.setAttribute(
 );
 const makeImagesItems = ({ alt, url }) =>
   `<li class = "gallery__items"><img class = "gallery__items-img"  src = "${url}" alt = "${alt}" width = 480></li>`;
-const imagesItems = images.map(makeImagesItems);
+const imagesItems = images.map(makeImagesItems).join('');
 gallery.insertAdjacentHTML('afterbegin', imagesItems);
 console.log(imagesItems);
