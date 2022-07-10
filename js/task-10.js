@@ -1,16 +1,21 @@
 const inputField = document.querySelector('input');
 const refBoxes = document.querySelector('#boxes');
-const BtnCreate = document.querySelector('button[data-create]');
-const BtnDestroy = document.querySelector('button[data-destroy]');
+const btnCreate = document.querySelector('button[data-create]');
+const btnDestroy = document.querySelector('button[data-destroy]');
 
 let createGlobalNumber = [];
 
-function getNaumbers(event) {
-  let createLocalNumber = [];
+function getAmount() {
+  var amount = +document.querySelector('#controls input').value;
+  createBoxes(amount);
+}
 
+function createBoxes(amount) {
+  let createLocalNumber = [];
   createGlobalNumber = createLocalNumber;
+
   let sumSizesDiv = 30;
-  for (let i = 0; i < event.currentTarget.value; i += 1) {
+  for (let i = 0; i < amount; i += 1) {
     createLocalNumber.push(
       `<div class = "boxes__div" style=" background-color : ${getRandomHexColor()}; 
       height : ${sumSizesDiv + 10}px; 
@@ -33,6 +38,6 @@ function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
-inputField.addEventListener('input', getNaumbers);
-BtnCreate.addEventListener('click', createBoxes);
-BtnDestroy.addEventListener('click', destroyBoxes);
+inputField.addEventListener('input', getAmount);
+btnCreate.addEventListener('click', createBoxes);
+btnDestroy.addEventListener('click', destroyBoxes);
