@@ -3,7 +3,8 @@ const btnCreate = document.querySelector('button[data-create]');
 const btnDestroy = document.querySelector('button[data-destroy]');
 
 function getAmount() {
-  let amount = +document.querySelector('#controls input').value;
+  let amount = document.querySelector('#controls input').value;
+  console.log('🚀 ~ file: task-10.js ~ line 7 ~ getAmount ~ amount', amount);
   createBoxes(amount);
 }
 
